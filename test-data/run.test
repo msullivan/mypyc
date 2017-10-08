@@ -286,3 +286,11 @@ def f() -> str:
 [file driver.py]
 from native import f
 assert f() == 'some string'
+
+[case testPyMethodCall]
+from typing import List
+def f(x: List[int]) -> int:
+    return x.pop()
+[file driver.py]
+from native import f
+assert f([1, 2]) == 2
